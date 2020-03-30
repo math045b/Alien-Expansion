@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import javax.annotation.Nonnull;
 import com.cy4.alienexpansion.core.init.BlockInit;
 import com.cy4.alienexpansion.core.init.ItemInit;
+import com.cy4.alienexpansion.core.tab.AlienExpansionTab;
 import com.google.common.base.Preconditions;
 
 import net.minecraft.item.BlockItem;
@@ -57,7 +58,7 @@ public class AlienExpansionMod {
 			public void onRegisterItems(final RegistryEvent.Register<Item> event) {
 				final IForgeRegistry<Item> registry = event.getRegistry();
 				BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-					final Item.Properties properties = new Item.Properties();
+					final Item.Properties properties = new Item.Properties().group(AlienExpansionTab.ALIEN_EXPANSION);
 					final BlockItem blockItem = new BlockItem(block, properties);
 					blockItem.setRegistryName(block.getRegistryName());
 					registry.register(blockItem);
