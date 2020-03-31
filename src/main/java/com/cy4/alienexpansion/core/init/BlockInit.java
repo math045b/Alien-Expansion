@@ -14,5 +14,8 @@ public class BlockInit {
 	public static final RegistryObject<Block> SIMPLE_RUNE = BLOCKS.register("simple_rune", () -> new Block(PropertyInit.ALIEN_BLOCK));
 	public static final RegistryObject<Block> NORMAL_RUNE = BLOCKS.register("normal_rune", () -> new Block(PropertyInit.ALIEN_BLOCK));
 	public static final RegistryObject<Block> ADVANCED_RUNE = BLOCKS.register("advanced_rune", () -> new Block(PropertyInit.ALIEN_BLOCK));
-	public static final RegistryObject<Block> ALIEN_STRUCTURE = BLOCKS.register("alien_structure", () -> new Block(PropertyInit.ALIEN_BLOCK));
+	public static final RegistryObject<Block> SIMPLE_ALIEN_RUNE = BLOCKS.register("simple_alien_rune", () -> new Block(PropertyInit.ALIEN_BLOCK));
+	public static final RegistryObject<Block> SIMPLE_ALIEN_RUNE_ACTIVE = BLOCKS.register("simple_alien_rune_active", () -> new Block(PropertyInit.ALIEN_BLOCK));
+	public static final RegistryObject<Block> ADVANCED_ALIEN_RUNE = BLOCKS.register("advanced_alien_rune", () -> new Block(PropertyInit.ALIEN_BLOCK));
+	public static final RegistryObject<Block> ADVANCED_ALIEN_RUNE_ACTIVE = BLOCKS.register("advanced_alien_rune_active", () -> new Block(PropertyInit.ALIEN_BLOCK));
 }

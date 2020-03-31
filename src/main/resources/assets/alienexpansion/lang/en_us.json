@@ -7,6 +7,8 @@
 	"block.alienexpansion.simple_rune": "Simple Rune",
 	"block.alienexpansion.normal_rune": "Normal Rune",
 	"block.alienexpansion.advanced_rune": "Advanced Rune",
-	"block.alienexpansion.alien_structure": "Alien Structure",
-	"block.alienexpansion.alien_structure_active": "Active Alien Structure"
+	"block.alienexpansion.advanced_alien_rune": "Alien Rune",
+	"block.alienexpansion.advanced_alien_rune_active": "Active Alien Rune",
+	"block.alienexpansion.simple_alien_rune": "Alien Rune",
+	"block.alienexpansion.simple_alien_rune_active": "Active Alien Rune"
 }
