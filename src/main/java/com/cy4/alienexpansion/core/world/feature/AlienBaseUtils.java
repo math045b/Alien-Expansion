@@ -16,6 +16,6 @@ private static final Direction[] directions = new Direction[] {Direction.NORTH, 
 	public static final int dirToInt(Direction dir) {
 		for (int i = 0; i < directions.length; i++)
 			if (directions[i] == dir) return i;
-		return -1;
+		return 0;
 	}
 }
