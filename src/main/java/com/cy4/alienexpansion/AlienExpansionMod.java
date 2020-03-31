@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.cy4.alienexpansion.core.init.BiomeInit;
 import com.cy4.alienexpansion.core.init.BlockInit;
 import com.cy4.alienexpansion.core.init.DimensionInit;
 import com.cy4.alienexpansion.core.init.ItemInit;
@@ -44,6 +45,7 @@ public class AlienExpansionMod {
 	public AlienExpansionMod() {
 		final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		modEventBus.addListener(this::setup);
+		BiomeInit.BIOMES.register(modEventBus);
 		BlockInit.BLOCKS.register(modEventBus);
 		ItemInit.ITEMS.register(modEventBus);
 		modEventBus.addListener(this::doClientStuff);

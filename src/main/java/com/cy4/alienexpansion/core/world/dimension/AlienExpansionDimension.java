@@ -1,18 +1,16 @@
 package com.cy4.alienexpansion.core.world.dimension;
 
-import net.minecraft.block.Blocks;
+import com.cy4.alienexpansion.core.init.BiomeInit;
+
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProviderType;
 import net.minecraft.world.dimension.Dimension;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.ChunkGeneratorType;
-import net.minecraft.world.gen.GenerationSettings;
 
 public class AlienExpansionDimension extends Dimension {
 
@@ -22,10 +20,7 @@ public class AlienExpansionDimension extends Dimension {
 
 	@Override
 	public ChunkGenerator<?> createChunkGenerator() {
-		ChunkGeneratorType<GenerationSettings, ?> VOID_CHUNK = null;
-		GenerationSettings genSettings = VOID_CHUNK.createSettings();
-		genSettings.setDefaultBlock(Blocks.AIR.getDefaultState());
-		return new AlienExpansionChunkGenerator(world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.func_226840_a_(this.world.getWorldInfo()).setBiome(Biomes.THE_VOID)), genSettings);
+		return new AlienExpansionChunkGenerator(world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.func_226840_a_(this.world.getWorldInfo()).setBiome(BiomeInit.ALIEN_EXPANSION_VOID.get())), new AlienExpansionChunkGenSettings());
 	}
 
 	@Override
