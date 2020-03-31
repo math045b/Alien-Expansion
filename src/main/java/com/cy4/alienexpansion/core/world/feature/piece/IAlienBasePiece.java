@@ -9,4 +9,7 @@ public interface IAlienBasePiece {
 	
 	//Resource Location for structure file
 	public ResourceLocation file();
+	
+	//ID variable
+	public int id();
 }
