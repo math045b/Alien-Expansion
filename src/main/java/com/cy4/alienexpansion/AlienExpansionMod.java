@@ -1,24 +1,26 @@
 package com.cy4.alienexpansion;
 
+import javax.annotation.Nonnull;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.annotation.Nonnull;
 import com.cy4.alienexpansion.core.init.BlockInit;
+import com.cy4.alienexpansion.core.init.DimensionInit;
 import com.cy4.alienexpansion.core.init.ItemInit;
 import com.google.common.base.Preconditions;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
-
+import net.minecraft.world.dimension.DimensionType;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.world.RegisterDimensionsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -26,7 +28,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 @Mod("alienexpansion")
 @Mod.EventBusSubscriber(modid = AlienExpansionMod.MOD_ID, bus = Bus.MOD)
@@ -34,6 +37,8 @@ public class AlienExpansionMod {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "alienexpansion";
 	public static AlienExpansionMod instance;
+	public static final ResourceLocation DIMENSION_TYPE = new ResourceLocation(AlienExpansionMod.MOD_ID,
+			"alienexpansion");
 
 	public AlienExpansionMod() {
 		final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -90,5 +95,14 @@ public class AlienExpansionMod {
 	@SubscribeEvent
 	public static void loadCompleteEvent(FMLLoadCompleteEvent event) {
 
+	}
+
+	@Mod.EventBusSubscriber(modid = AlienExpansionMod.MOD_ID, bus = Bus.FORGE)
+	public static class ForgeRegistryEvents {
+		@SubscribeEvent
+		public static void registerDimension(final RegisterDimensionsEvent event) {
+			if (DimensionType.byName(DIMENSION_TYPE) == null) DimensionManager.registerDimension(DIMENSION_TYPE, DimensionInit.ALIEN_EXPANSION_DIM, null, true);
+			LOGGER.info("Dimension Registered!");
+		}
 	}
 }
