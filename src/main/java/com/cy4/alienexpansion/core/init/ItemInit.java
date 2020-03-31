@@ -13,4 +13,6 @@ public class ItemInit {
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, AlienExpansionMod.MOD_ID);
 	
 	public static final RegistryObject<Item> PORTAL_TABLET = ITEMS.register("portal_tablet", () -> new ItemPortalTablet(PropertyInit.BAISC_ITEM));
+	
+	public static final RegistryObject<Item> PERL = ITEMS.register("pearl", () -> new Item(PropertyInit.BAISC_ITEM));
 }

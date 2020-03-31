@@ -1,5 +1,8 @@
 {
 	"itemGroup.alienexpansion": "Alien Expansion",
 	
-	"item.alienexpansion.portal_tablet": "Portal Tablet"
+	"item.alienexpansion.portal_tablet": "Portal Tablet",
+	"item.alienexpansion.pearl": "Pearl",
+	
+	"block.alienexpansion.simple_rune": "Simple Rune"
 }
