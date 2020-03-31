@@ -15,9 +15,7 @@ public class AlienExpansionChunkGenerator extends ChunkGenerator<GenerationSetti
     }
 
     @Override
-    public void func_225551_a_(WorldGenRegion p_225551_1_, IChunk p_225551_2_) {
-
-    }
+    public void func_225551_a_(WorldGenRegion p_225551_1_, IChunk p_225551_2_) { }
 
     @Override
     public int getGroundHeight() {
@@ -25,9 +23,7 @@ public class AlienExpansionChunkGenerator extends ChunkGenerator<GenerationSetti
     }
 
     @Override
-    public void makeBase(IWorld worldIn, IChunk chunkIn) {
-
-    }
+    public void makeBase(IWorld worldIn, IChunk chunkIn) { }
 
     @Override
     public int func_222529_a(int p_222529_1_, int p_222529_2_, Heightmap.Type heightmapType) {
