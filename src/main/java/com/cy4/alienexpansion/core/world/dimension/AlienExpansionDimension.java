@@ -65,7 +65,7 @@ public class AlienExpansionDimension extends Dimension {
 
 	@Override
 	public boolean canRespawnHere() {
-		return true;
+		return false;
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class AlienExpansionDimension extends Dimension {
 
 	@Override
 	public SleepResult canSleepAt(PlayerEntity player, BlockPos pos) {
-		return SleepResult.ALLOW;
+		return SleepResult.DENY;
 	}
 
 	@Override
