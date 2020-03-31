@@ -20,7 +20,9 @@ public class AlienExpansionDimension extends Dimension {
 
 	@Override
 	public ChunkGenerator<?> createChunkGenerator() {
-		return new AlienExpansionChunkGenerator(world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.func_226840_a_(this.world.getWorldInfo()).setBiome(BiomeInit.ALIEN_EXPANSION_VOID.get())), new AlienExpansionChunkGenSettings());
+		return new AlienExpansionChunkGenerator(world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED
+				.func_226840_a_(this.world.getWorldInfo()).setBiome(BiomeInit.ALIEN_EXPANSION_VOID.get())),
+				new AlienExpansionChunkGenSettings());
 	}
 
 	@Override
