@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "alienexpansion:blocks/simple_alien_rune_active"
-    }
-}

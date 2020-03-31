@@ -82,5 +82,4 @@ public class AlienExpansionDimension extends Dimension {
 	public int getActualHeight() {
 		return 256;
 	}
-
 }
