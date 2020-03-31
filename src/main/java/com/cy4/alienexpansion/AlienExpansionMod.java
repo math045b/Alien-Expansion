@@ -46,6 +46,19 @@ public class AlienExpansionMod {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
+	@SubscribeEvent
+	public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
+		final IForgeRegistry<Item> registry = event.getRegistry();
+		BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
+			final Item.Properties properties = new Item.Properties().group(AlienExpansionTab.ALIEN_EXPANSION);
+			final BlockItem blockItem = new BlockItem(block, properties);
+			blockItem.setRegistryName(block.getRegistryName());
+			registry.register(blockItem);
+		});
+		LOGGER.debug("Registered BlockItems");
+	}
+
+	
 	private void setup(final FMLCommonSetupEvent event) {
 
 	}
@@ -54,18 +67,7 @@ public class AlienExpansionMod {
 
 		@Mod.EventBusSubscriber(modid = AlienExpansionMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 		class RegistryEvents {
-			@SubscribeEvent
-			public void onRegisterItems(final RegistryEvent.Register<Item> event) {
-				final IForgeRegistry<Item> registry = event.getRegistry();
-				BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-					final Item.Properties properties = new Item.Properties().group(AlienExpansionTab.ALIEN_EXPANSION);
-					final BlockItem blockItem = new BlockItem(block, properties);
-					blockItem.setRegistryName(block.getRegistryName());
-					registry.register(blockItem);
-				});
-				LOGGER.debug("Registered BlockItems");
-			}
-
+			
 			@Nonnull
 			private <T extends IForgeRegistryEntry<T>> T setup(@Nonnull final T entry, @Nonnull final String name) {
 				Preconditions.checkNotNull(name, "Name to assign to entry cannot be null!");
