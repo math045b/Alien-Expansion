@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "alienexpansion:blocks/alien_rune_active",
+        "side": "alienexpansion:blocks/alien_pillar_active"
+    }
+}

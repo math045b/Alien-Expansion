@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "alienexpansion:block/alien_pillar_active" },
+        "axis=z":   { "model": "alienexpansion:block/alien_pillar_active", "x": 90 },
+        "axis=x":   { "model": "alienexpansion:block/alien_pillar_active", "x": 90, "y": 90 }
+    }
+}
