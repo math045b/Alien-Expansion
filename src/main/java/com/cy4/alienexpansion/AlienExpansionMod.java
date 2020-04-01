@@ -57,24 +57,19 @@ public class AlienExpansionMod {
 	public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
 		final IForgeRegistry<Item> registry = event.getRegistry();
 		BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-			final Item.Properties properties = new Item.Properties().group(AlienExpansionTab.ALIEN_EXPANSION);
-			final BlockItem blockItem = new BlockItem(block, properties);
-			blockItem.setRegistryName(block.getRegistryName());
-			registry.register(blockItem);
+			registry.register(new BlockItem(block, new Item.Properties().group(AlienExpansionTab.ALIEN_EXPANSION))
+					.setRegistryName(block.getRegistryName()));
 		});
-		LOGGER.debug("Registered BlockItems");
 	}
 
-	
 	private void setup(final FMLCommonSetupEvent event) {
-
 	}
 
 	private void doClientStuff(final FMLClientSetupEvent event) {
 
 		@Mod.EventBusSubscriber(modid = AlienExpansionMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 		class RegistryEvents {
-			
+
 			@Nonnull
 			private <T extends IForgeRegistryEntry<T>> T setup(@Nonnull final T entry, @Nonnull final String name) {
 				Preconditions.checkNotNull(name, "Name to assign to entry cannot be null!");
@@ -93,21 +88,17 @@ public class AlienExpansionMod {
 	}
 
 	@SubscribeEvent
-	public void onServerStarting(FMLServerStartingEvent event) {
-
-	}
+	public void onServerStarting(FMLServerStartingEvent event) { }
 
 	@SubscribeEvent
-	public static void loadCompleteEvent(FMLLoadCompleteEvent event) {
-
-	}
+	public static void loadCompleteEvent(FMLLoadCompleteEvent event) { }
 
 	@Mod.EventBusSubscriber(modid = AlienExpansionMod.MOD_ID, bus = Bus.FORGE)
 	public static class ForgeRegistryEvents {
 		@SubscribeEvent
 		public static void registerDimension(final RegisterDimensionsEvent event) {
-			if (DimensionType.byName(DIMENSION_TYPE) == null) DimensionManager.registerDimension(DIMENSION_TYPE, DimensionInit.ALIEN_EXPANSION_DIM, null, true);
-			LOGGER.info("Dimension Registered!");
+			if (DimensionType.byName(DIMENSION_TYPE) == null)
+				DimensionManager.registerDimension(DIMENSION_TYPE, DimensionInit.ALIEN_EXPANSION_DIM, null, true);
 		}
 	}
 }
