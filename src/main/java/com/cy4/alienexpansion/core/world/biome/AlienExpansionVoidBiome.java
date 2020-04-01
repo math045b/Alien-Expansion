@@ -17,7 +17,7 @@ public class AlienExpansionVoidBiome extends Biome {
         this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES,
         new AlienBaseFeature(NoFeatureConfig::deserialize)
         .withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-        .withPlacement(Placement.CHANCE_HEIGHTMAP_DOUBLE.configure(new ChanceConfig(chance))));
+        .withPlacement(Placement.CHANCE_HEIGHTMAP_DOUBLE.configure(new ChanceConfig(1))));
     }
     
     @OnlyIn(Dist.CLIENT)

@@ -43,7 +43,7 @@ public class AlienBaseFeature extends Feature<NoFeatureConfig> {
 		// structure
 		BlockPos blockpos1 = template.getZeroPositionWithTransform(pos, Mirror.NONE, rotation);
 		IntegrityProcessor integrityprocessor = new IntegrityProcessor(0.9F);
-		placementsettings.func_215219_b().addProcessor(integrityprocessor);
+		placementsettings.clearProcessors().addProcessor(integrityprocessor);
 		template.addBlocksToWorld(worldIn, blockpos1, placementsettings, 4);
 		placementsettings.func_215220_b(integrityprocessor);
 		return true;
