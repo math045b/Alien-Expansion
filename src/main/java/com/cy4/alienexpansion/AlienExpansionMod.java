@@ -62,8 +62,7 @@ public class AlienExpansionMod {
 		});
 	}
 
-	private void setup(final FMLCommonSetupEvent event) {
-	}
+	private void setup(final FMLCommonSetupEvent event) { }
 
 	private void doClientStuff(final FMLClientSetupEvent event) {
 

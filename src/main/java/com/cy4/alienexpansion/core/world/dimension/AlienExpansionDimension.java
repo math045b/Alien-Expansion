@@ -37,8 +37,7 @@ public class AlienExpansionDimension extends Dimension {
 
 	@Override
 	public float calculateCelestialAngle(long worldTime, float partialTicks) {
-		int j = 6000;
-		float f1 = (j + partialTicks) / 24000.0f - 0.25f;
+		float f1 = (6000 + partialTicks) / 24000.0f - 0.25f;
 		if (f1 < 0.0f) {
 			f1 += 1.0f;
 		}
