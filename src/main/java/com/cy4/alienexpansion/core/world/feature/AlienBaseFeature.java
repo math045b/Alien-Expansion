@@ -7,6 +7,7 @@ import com.cy4.alienexpansion.core.world.feature.piece.AlienBasePieces;
 import com.mojang.datafixers.Dynamic;
 
 import net.minecraft.util.Mirror;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -27,17 +28,21 @@ public class AlienBaseFeature extends Feature<NoFeatureConfig> {
 
 	public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand,
 			BlockPos pos, NoFeatureConfig config) {
+		placeFeature(AlienBasePieces.PIECES[new Random().nextInt(3)].structurefile, worldIn, pos);
+		return true;
+	}
+
+	public void placeFeature(ResourceLocation t, IWorld worldIn, BlockPos pos) {
 		Random random = worldIn.getRandom();
 		Rotation[] arotation = Rotation.values();
 		Rotation rotation = arotation[random.nextInt(arotation.length)];
 		Template template = ((ServerWorld) worldIn.getWorld()).getSaveHandler().getStructureTemplateManager()
-				.getTemplateDefaulted(AlienBasePieces.PIECES[random.nextInt(3)].structurefile);
+				.getTemplateDefaulted(t);
 		template.addBlocksToWorld(worldIn, template.getZeroPositionWithTransform(pos, Mirror.NONE, rotation),
 				(new PlacementSettings()).setRotation(rotation)
 						.setBoundingBox(
 								new MutableBoundingBox((0 - 25600), (0 - 25600), (0 - 25600), 25600, 256, 25600))
 						.setRandom(random).addProcessor(BlockIgnoreStructureProcessor.AIR_AND_STRUCTURE_BLOCK),
 				4);
-		return true;
 	}
 }
