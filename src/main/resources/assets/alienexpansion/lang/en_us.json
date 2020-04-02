@@ -3,6 +3,7 @@
 	
 	"item.alienexpansion.portal_tablet": "Portal Tablet",
 	"item.alienexpansion.pearl": "Pearl",
+	"item.alienexpansion.display_case": "Display Case",
 	
 	"block.alienexpansion.simple_rune": "Simple Rune",
 	"block.alienexpansion.normal_rune": "Normal Rune",
@@ -10,6 +11,5 @@
 	"block.alienexpansion.alien_rune": "Alien Rune",
 	"block.alienexpansion.alien_rune_active": "Active Alien Rune",
 	"block.alienexpansion.alien_pillar": "Alien Pillar",
-	"block.alienexpansion.alien_pillar_active": "Active Alien Pillar",
-	"block.alienexpansion.display_case": "Display Case"
+	"block.alienexpansion.alien_pillar_active": "Active Alien Pillar"
 }
