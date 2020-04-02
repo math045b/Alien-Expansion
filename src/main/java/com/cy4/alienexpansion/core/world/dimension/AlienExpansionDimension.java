@@ -81,4 +81,14 @@ public class AlienExpansionDimension extends Dimension {
 	public int getActualHeight() {
 		return 256;
 	}
+	
+	@Override
+	public float getCloudHeight() {
+		return 1000.0f;
+	}
+	
+	@Override
+	public boolean isDaytime() {
+		return true;
+	}
 }
