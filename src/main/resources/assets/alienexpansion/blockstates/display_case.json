@@ -1,5 +1,5 @@
 {
     "variants": {
-        "":  { "model": "alienexpansion:block/display_case" }
+        "": { "model": "alienexpansion:block/display_case" }
     }
 }

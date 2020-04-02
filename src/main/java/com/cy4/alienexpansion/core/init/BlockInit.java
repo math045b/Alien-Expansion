@@ -1,6 +1,7 @@
 package com.cy4.alienexpansion.core.init;
 
 import com.cy4.alienexpansion.AlienExpansionMod;
+import com.cy4.alienexpansion.common.blocks.BlockDisplayCase;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.RotatedPillarBlock;
@@ -19,4 +20,5 @@ public class BlockInit {
 	public static final RegistryObject<Block> ALIEN_RUNE_ACTIVE = BLOCKS.register("alien_rune_active", () -> new Block(PropertyInit.LIT_ALIEN_BLOCK));
 	public static final RegistryObject<Block> ALIEN_PILLAR = BLOCKS.register("alien_pillar", () -> new RotatedPillarBlock(PropertyInit.ALIEN_BLOCK));
 	public static final RegistryObject<Block> ALIEN_PILLAR_ACTIVE = BLOCKS.register("alien_pillar_active", () -> new RotatedPillarBlock(PropertyInit.LIT_ALIEN_BLOCK));
+	public static final RegistryObject<Block> DISPLAY_CASE = BLOCKS.register("display_case", () -> new BlockDisplayCase(PropertyInit.ALIEN_BLOCK.notSolid()));
 }
