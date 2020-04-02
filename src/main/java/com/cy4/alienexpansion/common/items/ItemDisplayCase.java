@@ -2,7 +2,10 @@ package com.cy4.alienexpansion.common.items;
 
 import com.cy4.alienexpansion.common.entity.item.DisplayCaseEntity;
 
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EntityType.IFactory;
 import net.minecraft.entity.item.HangingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HangingEntityItem;
@@ -14,11 +17,19 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
 
 public class ItemDisplayCase extends HangingEntityItem {
 
 	public ItemDisplayCase(Item.Properties builder) {
-		super(EntityType.ITEM_FRAME, builder);
+		super(new EntityType<DisplayCaseEntity>(new IFactory<DisplayCaseEntity>() {
+
+			@Override
+			public DisplayCaseEntity create(EntityType<DisplayCaseEntity> p_create_1_, World p_create_2_) {
+				return new DisplayCaseEntity(p_create_1_, p_create_2_);
+			}
+		}, EntityClassification.MISC, false, false, true, false, new EntitySize(0.5F, 0.5F, true)),
+				builder.addToolType(ToolType.PICKAXE, 1));
 	}
 
 	protected boolean canPlace(PlayerEntity playerIn, Direction directionIn, ItemStack itemStackIn, BlockPos posIn) {
