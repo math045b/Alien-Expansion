@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.cy4.alienexpansion.client.tesr.DisplayCaseTileEntityRenderer;
 import com.cy4.alienexpansion.core.init.BiomeInit;
 import com.cy4.alienexpansion.core.init.BlockInit;
 import com.cy4.alienexpansion.core.init.DimensionInit;
@@ -15,6 +16,7 @@ import com.google.common.base.Preconditions;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -66,9 +68,12 @@ public class AlienExpansionMod {
 		});
 	}
 
-	private void setup(final FMLCommonSetupEvent event) { }
+	private void setup(final FMLCommonSetupEvent event) {
+	}
 
 	private void doClientStuff(final FMLClientSetupEvent event) {
+		TileEntityRendererDispatcher.instance.setSpecialRendererInternal(TileInit.DISPLAY_CASE.get(),
+				new DisplayCaseTileEntityRenderer(TileEntityRendererDispatcher.instance));
 		RenderTypeLookup.setRenderLayer(BlockInit.DISPLAY_CASE.get(), RenderType.getTranslucent());
 	}
 
