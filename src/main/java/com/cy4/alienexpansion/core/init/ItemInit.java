@@ -10,7 +10,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemInit {
-	
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, AlienExpansionMod.MOD_ID);	
 	public static final RegistryObject<Item> PORTAL_TABLET = ITEMS.register("portal_tablet", () -> new ItemPortalTablet(PropertyInit.BASIC_ITEM));	
 	public static final RegistryObject<Item> PEARL = ITEMS.register("pearl", () -> new Item(PropertyInit.BASIC_ITEM));
