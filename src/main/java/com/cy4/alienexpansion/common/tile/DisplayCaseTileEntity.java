@@ -3,6 +3,7 @@ package com.cy4.alienexpansion.common.tile;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.cy4.alienexpansion.AlienExpansionMod;
 import com.cy4.alienexpansion.core.init.TileInit;
 
 import net.minecraft.item.ItemStack;
@@ -70,24 +71,23 @@ public class DisplayCaseTileEntity extends TileEntity implements ITickableTileEn
 	}
 
 	public ItemStack getInventory() {
-		inventoryChanged();
 		return getHandler().getStackInSlot(0);
 	}
 
 	private void inventoryChanged() {
 		this.markDirty();
-		this.getWorld().notifyBlockUpdate(this.getPos(), this.getBlockState(), this.getBlockState(), 3);
+		this.getWorld().notifyBlockUpdate(this.getPos(), this.getBlockState(), this.getBlockState(), 8);
 	}
 
 	@Nullable
 	@Override
 	public SUpdateTileEntityPacket getUpdatePacket() {
-		return new SUpdateTileEntityPacket(this.pos, 13, this.getUpdateTag());
+		AlienExpansionMod.LOGGER.debug(TileInit.DISPLAY_CASE.get().hashCode());
+		return new SUpdateTileEntityPacket(this.pos, TileInit.DISPLAY_CASE.get().hashCode(), this.getUpdateTag());
 	}
 
 	@Override
 	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
-		getInventory();
 		super.onDataPacket(net, pkt);
 	}
 
@@ -98,4 +98,5 @@ public class DisplayCaseTileEntity extends TileEntity implements ITickableTileEn
 
 	@Override
 	public void tick() {}
+
 }
