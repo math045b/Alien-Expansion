@@ -3,8 +3,8 @@
 	
 	"item.alienexpansion.portal_tablet": "Portal Tablet",
 	"item.alienexpansion.pearl": "Pearl",
-	"item.alienexpansion.display_case": "Display Case",
-	
+
+	"block.alienexpansion.display_case": "Display Case",
 	"block.alienexpansion.simple_rune": "Simple Rune",
 	"block.alienexpansion.normal_rune": "Normal Rune",
 	"block.alienexpansion.advanced_rune": "Advanced Rune",
