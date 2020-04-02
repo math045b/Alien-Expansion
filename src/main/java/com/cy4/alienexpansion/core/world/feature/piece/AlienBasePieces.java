@@ -45,5 +45,5 @@ public class AlienBasePieces {
 			new boolean[] { true, true, true, true, false, false },
 			new ResourceLocation(AlienExpansionMod.MOD_ID, "alienbasepiece/room/artifact_room"));
 	
-	public static final AlienBasePieceTemplate[] PIECES = new AlienBasePieceTemplate[] {CORRIDOR_NORTH_SOUTH, CORRIDOR_EAST_WEST, CORRIDOR_UP_DOWN};
+	public static final AlienBasePieceTemplate[] PIECES = new AlienBasePieceTemplate[] {END_NORTH, END_SOUTH, END_EAST, END_WEST, END_UP, END_DOWN};
 }

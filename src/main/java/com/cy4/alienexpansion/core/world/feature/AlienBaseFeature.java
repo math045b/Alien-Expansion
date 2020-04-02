@@ -28,7 +28,7 @@ public class AlienBaseFeature extends Feature<NoFeatureConfig> {
 
 	public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand,
 			BlockPos pos, NoFeatureConfig config) {
-		placeFeature(AlienBasePieces.PIECES[new Random().nextInt(3)].structurefile, worldIn, pos);
+		placeFeature(AlienBasePieces.PIECES[new Random().nextInt(AlienBasePieces.PIECES.length)].structurefile, worldIn, pos);
 		return true;
 	}
 
