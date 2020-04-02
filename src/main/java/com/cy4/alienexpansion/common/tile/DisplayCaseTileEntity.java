@@ -10,7 +10,6 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
-import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -55,7 +54,7 @@ public class DisplayCaseTileEntity extends TileEntity implements ITickableTileEn
 		return super.getCapability(cap, side);
 	}
 
-	public NonNullList<ItemStack> getInventory() {
-		return NonNullList.<ItemStack>withSize(1, getHandler().getStackInSlot(0));
+	public ItemStack getInventory() {
+		return getHandler().getStackInSlot(0);
 	}
 }

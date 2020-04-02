@@ -12,7 +12,6 @@ import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
-import net.minecraft.util.NonNullList;
 
 @SuppressWarnings("deprecation")
 public class DisplayCaseTileEntityRenderer extends TileEntityRenderer<DisplayCaseTileEntity>{
@@ -24,14 +23,12 @@ public class DisplayCaseTileEntityRenderer extends TileEntityRenderer<DisplayCas
 	@Override
 	public void render(DisplayCaseTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn,
 			IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
-		NonNullList<ItemStack> nonnulllist = tileEntityIn.getInventory();
-		for(int i = 0; i < nonnulllist.size(); ++i) {
-	         ItemStack itemstack = nonnulllist.get(i);
+	         ItemStack itemstack = tileEntityIn.getInventory();
 	         AlienExpansionMod.LOGGER.debug(itemstack);
 	         if (itemstack != ItemStack.EMPTY) {
 	            matrixStackIn.push();
 	            matrixStackIn.translate(0.5D, 0.44921875D, 0.5D);
-	            float f = -Direction.byHorizontalIndex((i + Direction.NORTH.getHorizontalIndex()) % 4).getHorizontalAngle();
+	            float f = -Direction.byHorizontalIndex((0 + Direction.NORTH.getHorizontalIndex()) % 4).getHorizontalAngle();
 	            matrixStackIn.rotate(Vector3f.YP.rotationDegrees(f));
 	            matrixStackIn.rotate(Vector3f.XP.rotationDegrees(90.0F));
 	            matrixStackIn.translate(-0.3125D, -0.3125D, 0.0D);
@@ -39,6 +36,5 @@ public class DisplayCaseTileEntityRenderer extends TileEntityRenderer<DisplayCas
 	            Minecraft.getInstance().getItemRenderer().renderItem(itemstack, ItemCameraTransforms.TransformType.FIXED, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn);
 	            matrixStackIn.pop();
 	         }
-	      }
 	}
 }
