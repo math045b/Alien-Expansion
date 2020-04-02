@@ -1,6 +1,5 @@
 {
     "variants": {
-        "map=false": { "model": "alienexpansion:block/display_case" },
-        "map=true":  { "model": "alienexpansion:block/display_case" }
+        "":  { "model": "alienexpansion:block/display_case" }
     }
 }
