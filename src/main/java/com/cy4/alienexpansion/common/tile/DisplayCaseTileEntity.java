@@ -55,6 +55,7 @@ public class DisplayCaseTileEntity extends TileEntity implements ITickableTileEn
 					inventoryChanged();
 					return super.extractItem(slot, amount, simulate);
 				}
+				
 			};
 		return handler;
 	}
