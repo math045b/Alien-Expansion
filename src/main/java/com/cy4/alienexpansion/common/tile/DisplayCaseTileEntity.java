@@ -3,11 +3,11 @@ package com.cy4.alienexpansion.common.tile;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.cy4.alienexpansion.AlienExpansionMod;
 import com.cy4.alienexpansion.core.init.TileInit;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -27,11 +27,6 @@ public class DisplayCaseTileEntity extends TileEntity implements ITickableTileEn
 
 	public DisplayCaseTileEntity() {
 		this(TileInit.DISPLAY_CASE.get());
-	}
-
-	@Override
-	public void tick() {
-		AlienExpansionMod.LOGGER.debug(getHandler().getStackInSlot(0));
 	}
 
 	@Override
@@ -76,7 +71,7 @@ public class DisplayCaseTileEntity extends TileEntity implements ITickableTileEn
 
 	public ItemStack getInventory() {
 		inventoryChanged();
-		return handler.getStackInSlot(0);
+		return getHandler().getStackInSlot(0);
 	}
 
 	private void inventoryChanged() {
@@ -91,7 +86,16 @@ public class DisplayCaseTileEntity extends TileEntity implements ITickableTileEn
 	}
 
 	@Override
+	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+		getInventory();
+		super.onDataPacket(net, pkt);
+	}
+
+	@Override
 	public CompoundNBT getUpdateTag() {
 		return this.write(new CompoundNBT());
 	}
+
+	@Override
+	public void tick() {}
 }
